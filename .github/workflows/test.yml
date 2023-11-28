@@ -1,5 +1,7 @@
 name: Test
-on: push
+on: 
+  workflow_dispatch: # Trigger manually 
+  push:
 
 jobs:
   build:
