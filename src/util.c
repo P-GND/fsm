@@ -4,7 +4,7 @@
 
 
 
-extern volatile uint8_t tick;
+volatile uint8_t tick = 0;
 
 
 uint8_t isElapsed(uint8_t start, uint8_t tout)
