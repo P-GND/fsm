@@ -1,6 +1,7 @@
 #ifdef TEST
     #include <stdint.h>
     #include "unity.h"
+    #include "util.h"
     #include "def.h"
 
 
