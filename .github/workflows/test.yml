@@ -16,3 +16,20 @@ jobs:
         if: always()
         with:
             files: build/artifacts/test/report.xml
+
+      -
+        name: Archive coverage results
+        shell: bash
+        run: |
+          staging="reports-${{github.run_number}}"
+          mkdir -p "$staging"
+          cp -r build/artifacts/gcov "$staging"
+          tar czf "$staging.tar.gz" "$staging"
+          echo "ASSET=$staging.tar.gz" >> $GITHUB_ENV
+      -
+        name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: reports-${{github.run_number}}
+          path: ${{ env.ASSET }}
+          retention-days: 3
