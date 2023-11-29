@@ -29,6 +29,14 @@ jobs:
           cp -r build/artifacts/test "$staging"
           tar czf "$staging.tar.gz" "$staging"
           echo "ASSET=$staging.tar.gz" >> $GITHUB_ENV
+
+      -
+        name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports-${{github.run_number}}
+          path: ${{ env.ASSET }}
+          retention-days: 3
         
       -
         name: Archive coverage results
