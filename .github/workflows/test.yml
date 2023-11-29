@@ -18,11 +18,12 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
-            files: build/artifacts/test/report.xml
+            files: build/artifacts/gcov/report.xml
 
       -
         name: Archive coverage results
         shell: bash
+        
         run: |
           staging="reports-${{github.run_number}}"
           mkdir -p "$staging"
