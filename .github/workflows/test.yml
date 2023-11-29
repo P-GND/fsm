@@ -13,13 +13,23 @@ jobs:
         uses: batov/ceedling_action@master
         with:
           arguments:
-             gcov:all utils:gcov test:all
+              test:all
+              # gcov:all utils:gcov
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
             files: build/artifacts/test/report.xml
 
+      -
+        name: Archive test results
+        run: |
+          staging="test-reports-${{github.run_number}}"
+          mkdir -p "$staging"
+          cp -r build/artifacts/test "$staging"
+          tar czf "$staging.tar.gz" "$staging"
+          echo "ASSET=$staging.tar.gz" >> $GITHUB_ENV
+        
       -
         name: Archive coverage results
         shell: bash
