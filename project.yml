@@ -97,10 +97,11 @@
   :load_paths:
     - "#{Ceedling.load_path}"
   :enabled:
+    - junit_tests_report
+    - xml_tests_report
     - stdout_pretty_tests_report
     - module_generator
-    - junit_tests_report
-    #- xml_tests_report
+    - raw_output_report
     - gcov
     
 ...
