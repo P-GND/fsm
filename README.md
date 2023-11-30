@@ -1,3 +1,5 @@
+![Test](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
+
 # fsm
 Finite-state machine for embedded (not only) usage
 
