@@ -75,6 +75,12 @@
   :gcovr:
     :html_medium_threshold: 75
     :html_high_threshold: 90
+    # HTML report filename.
+    :html_artifact_filename: my-project name
+
+    # Use 'title' as title for the HTML report.
+    # Default is 'Head'. (gcovr --html-title)
+    :html_title: my-project name
 
 #:tools:
 # Ceedling defaults to using gcc for compiling, linking, etc.
