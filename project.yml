@@ -93,6 +93,12 @@
   :test: []
   :release: []
 
+:junit_tests_report:
+  :artifact: report.xml
+
+:xml_tests_report:
+  :artifact: report_xml.xml
+
 :plugins:
   :load_paths:
     - "#{Ceedling.load_path}"
